@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise for Asia</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('http://wallpapercave.com/wp/aIKQIDH.jpg') no-repeat center center/cover;
+            position: relative;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #message {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 3px 3px 10px pink;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background-color: #ff4d79;
+            color: white;
+        }
+
+        .no {
+            background-color: #999;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        #response {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 10px red;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .show {
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">Will you be my Valentine? ❤️</div>
+
+    <div class="buttons">
+        <a href="C:\Users\Acer\OneDrive\gerald\asia2.html"><button class="btn yes">Yes ❤️</button></a>
+        <button class="btn no" onclick="moveNo()">No 😢</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
+
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        setInterval(createHeart, 300);
+
+        function moveNo() {
+            const noButton = document.querySelector(".no");
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 150);
+            noButton.style.position = "absolute";
+            noButton.style.left = ${x}px;
+            noButton.style.top = ${y}px;
+        }
+    </script>
+</body>
+</html>
+
